@@ -1,35 +1,44 @@
-STYLED-COMPONENTS
 
-1/Installation
-	npm install styled-components
+
+# STYLED-COMPONENTS
+
+
+
+1. **Installation**  
+	```bash
+    npm install styled-components
+    ```
 	
-	*Về cơ bản styled-components là một dạng viết CSS trực tiếp trong file tsx <==> như tsx viết html trong ts
+	* Về cơ bản styled-components là một dạng viết CSS trực tiếp trong file tsx <==> như tsx viết html trong ts
 	CSS-in-TS
 	
-	*cài extensiton : styled-components-snippets ==> dùng cho tiện tren vscode
+	* Extensiton : styled-components-snippets ==> dùng cho tiện tren vscode
 		scp,
 	
-	*Video youtube tổng hợp cảu kênh evondev
-	https://www.youtube.com/playlist?list=PLmnsJI3O-fYskJJ2nK1kGPXPzCYOTJAOb
+	> Link youtube tổng hợp của kênh evondev:
+	[Styled-components](https://www.youtube.com/playlist?list=PLmnsJI3O-fYskJJ2nK1kGPXPzCYOTJAOb)
 	
-	*Một số 
+	* Một số import ghay dùng
 	
-		import styled from 'styled-components';
-		import { createGlobalStyle } from 'styled-components';
-		import { css } from 'styled-components';
-		import { withTheme } from 'styled-components';
-2/Getting Started
-	Một số syntax cơ bản khi dùng styled-components
-		const Tags = styled."tags html"`
+		import styled from 'styled-components';  
+		import { createGlobalStyle } from 'styled-components';  
+		import { css } from 'styled-components';  
+		import { withTheme } from 'styled-components';  
+2. **Getting Started**  
+	Một số syntax cơ bản khi dùng styled-components:
+	```
+        const Tags = styled."tags html"`
 			"CSS"`;
+    ```
 	vd1:		
-			function Components() {
+```ts
+            function Components() {
 			<tags html>
 				"text"
 			</tags html>
 			}
 			
-		vd:
+		vd1:
 			const Title = styled.h1`
 				  font-size: 1.5em;
 				  text-align: center;
@@ -48,8 +57,10 @@ STYLED-COMPONENTS
 					</Title>
 				  </Wrapper>
 				);
-		vd2:
-			const Input = styled.input<{ $inputColor?: string; }>`
+```
+vd2:
+```ts
+            const Input = styled.input<{ $inputColor?: string; }>`
 			  padding: 0.5em;
 			  margin: 0.5em;
 			  color: ${props => props.$inputColor || "#BF4F74"};
@@ -65,10 +76,12 @@ STYLED-COMPONENTS
 				<Input defaultValue="@geelen" type="text" $inputColor="rebeccapurple" />
 			  </div>
 					);
+```
 				
-		*Thẻ sẽ chứa tất cả các tính chất CSS dùng bên trên ==> thuận tiện cho xây dựng từng components riêng lẻ 
-3/use props
-	  const Button = styled.button<{ $primary?: boolean; }>`
+* Thẻ sẽ chứa tất cả các tính chất CSS dùng bên trên ==> thuận tiện cho xây dựng từng components riêng lẻ  
+3. **Use props**  
+```ts
+      const Button = styled.button<{ $primary?: boolean; }>`
 		  background: ${props => props.$primary ? "#BF4F74" : "white"};
 		  color: ${props => props.$primary ? "white" : "#BF4F74"};
 
@@ -85,21 +98,25 @@ STYLED-COMPONENTS
 			<Button $primary>Primary</Button>
 		  </div>
 	);
-	* Một dạng sư dụng props khác 
-	${(props) ==> 
+```
+* Một dạng sư dụng props khác 
+```ts
+    ${(props) ==> 
 		props.secondary &&
 		css`
 		background: linear-gradient(86.88deg, #20e3b,#2cccff);
 		`
 	}
+```
 	
-	*Sử dụng props trong thẻ button có thể xử lý như một hàm có state css, có thể dùng trực tiếp arow function trong này
+* Sử dụng props trong thẻ button có thể xử lý như một hàm có state css, có thể dùng trực tiếp arow function trong này
 	
-4/Extending Styles
-	*Tính kế thừa của styled-components dùng lại một styled và viết tiếp thuộc tính hoặc ghi đề lên giá trị cũ 
+4. **Extending Styles**  
+	* Tính kế thừa của styled-components dùng lại một styled và viết tiếp thuộc tính hoặc ghi đề lên giá trị cũ 
 	
-	vd:
-		const Button = styled.button`
+vd:
+```ts
+        const Button = styled.button`
 		  color: #BF4F74;
 		  font-size: 1em;
 		  margin: 1em;
@@ -119,22 +136,26 @@ STYLED-COMPONENTS
 			<TomatoButton>Tomato Button</TomatoButton>
 		  </div>
 		);
+```
 		
-		*Như trên thấy TomatoButton có style được ghi đè lệnh color borser-color
+* Như trên thấy TomatoButton có style được ghi đè lệnh color borser-color
 		
-		*dùng as="new tag html " ==> sẽ thay đổi loại tags cho cái styped ấy 
+* dùng as="new tag html " ==> sẽ thay đổi loại tags cho cái styped ấy 
 		 
-		 vd:
-			ender(
+vd:
+```ts
+            render(
 			  <div>
 				<Button>Normal Button</Button>
 				<Button as="a" href="#">Link with Button styles</Button>
 				<TomatoButton as="a" href="#">Link with Tomato Button styles</TomatoButton>
 			  </div>
 					);
+```
 					
-			*Ví dụ về custom components 		
-					const Button = styled.button`
+* Ví dụ về custom components 		
+```ts
+                    const Button = styled.button`
 					  display: inline-block;
 					  color: #BF4F74;
 					  font-size: 1em;
@@ -153,18 +174,22 @@ STYLED-COMPONENTS
 						<Button as={ReversedButton}>Custom Button with Normal Button styles</Button>
 					  </div>
 					);
+```
 					
-5/Styling any component
-	* sty; le trực tiếp components đã có sẵn theo syntax
+5. **Styling any component**
+* style trực tiếp components đã có sẵn theo syntax
 		
-		const NewComponent = styled(Components)`
+```
+        const NewComponent = styled(Components)`
 		"CSS"`
 		`
-6/	Pseudoelements, pseudoselectors, and nesting
+```
+6.	**Pseudoelements, pseudoselectors, and nesting**
 
-	*vd 1: cách dùng hover các thẻ có vị trí khác nhau cùng với className
+* vd 1: cách dùng hover các thẻ có vị trí khác nhau cùng với className
 	
-				const Thing = styled.div.attrs((/* props */) => ({ tabIndex: 0 }))`
+```ts
+                const Thing = styled.div.attrs((/* props */) => ({ tabIndex: 0 }))`
 			  color: blue;
 
 			  &:hover {
@@ -200,13 +225,15 @@ STYLED-COMPONENTS
 				</div>
 			  </React.Fragment>
 			)
+```
 			
-		*&&riêng một ký hiệu kép có một hành vi đặc biệt được gọi là "tăng mức độ ưu tiên"; điều này có thể hữu ích nếu bạn đang xử lý một môi trường CSS hỗn hợp và các thành phần có kiểu dáng, nơi có thể có các kiểu xung đột:
+* && riêng một ký hiệu kép có một hành vi đặc biệt được gọi là "tăng mức độ ưu tiên"; điều này có thể hữu ích nếu bạn đang xử lý một môi trường CSS hỗn hợp và các thành phần có kiểu dáng, nơi có thể có các kiểu xung đột:
 	
-7/ .attrs constructor
+7. **.attrs constructor**
 
-*thêm tính chất cho tags
+* thêm tính chất cho tags
 
+```ts
 const Input = styled.input.attrs<{ $size?: string; }>(props => ({
   // we can define static props
   type: "text",
@@ -231,9 +258,11 @@ render(
     <Input placeholder="A bigger text input" $size="2em" />
   </div>
 );
+```
 
-8/ Animations
+8. **Animations**
 
+```ts
 // Create the keyframes
 const rotate = keyframes`
   from {
@@ -256,12 +285,14 @@ const Rotate = styled.div`
 render(
   <Rotate>&lt; 💅🏾 &gt;</Rotate>
 );
+```
 
-9/Theme
+9. **Theme**
 
-	*lưu một số gt thêm trong mảng theme
+* lưu một số gt thêm trong mảng theme
 	
-	import {ThemeProbider} from "styled-components";
+```ts
+    import {ThemeProbider} from "styled-components";
 			const Button = styled.button`
 			  font-size: 1em;
 			  margin: 1em;
@@ -289,32 +320,41 @@ render(
 				</ThemeProvider>
 			  </div>
 			);
+```
 
-	* chú ý mảng này để thưc hiện nâng cao hơn
-	import { withTheme } from 'styled-components'
+* chú ý mảng này để thưc hiện nâng cao hơn
+	
+```ts
+    import { withTheme } from 'styled-components'
 	import { useContext } from 'react'
 	import { ThemeContext } from 'styled-components'	
 	import { useTheme } from 'styled-components'
+```
 	
 	
-10/Tagged Template Literals
+10. **Tagged Template Literals**
 
-	vd1:
-	const aVar = 'good';
+vd1:
+```ts
+    const aVar = 'good';
 		fn`this is a ${aVar} day`;
 		fn(['this is a ', ' day'], aVar);
+```
 		
-	vd2:
-	const Title = styled.h1<{ $upsideDown?: boolean; }>`
+vd2:
+```ts
+    const Title = styled.h1<{ $upsideDown?: boolean; }>`
 		  ${props => props.$upsideDown && 'transform: rotate(180deg);'}
 		  text-align: center;
 		`;
+```
 		
-11/ Global styled 		
+11. **Global styled** 		
  
-	*dùng để tạo một số CSS chung cho dự án 
-	 vd1 :
-		import { createGlobalStyle } from "styled-components";
+* dùng để tạo một số CSS chung cho dự án 
+vd1 :
+```ts
+        import { createGlobalStyle } from "styled-components";
 		import { GlobalClass } from "./..."
 		export const GlobalStyle = createGlobalStyle`
 		@import url('....') // url font chữ tải trên google font 
@@ -323,10 +363,12 @@ render(
 			};
 		${GlobalClass} // đưa được file class vào trung trong file global
 		`;
+```
 		
-	*ngoài ra có thể tạo thêm một file GlobalClass để đưa thêm một số class dùng trung ở global vào 
+* ngoài ra có thể tạo thêm một file GlobalClass để đưa thêm một số class dùng trung ở global vào 
 			
-		import {css} from "styled-components";
+```ts
+        import {css} from "styled-components";
 		
 		export const GlobalClasses = css`
 		.demo{
@@ -336,18 +378,22 @@ render(
 		}
 
 		`;
+```
 		
-12/ cách sử dụng styled-components có 2 cách phổ biến 
+12. **cách sử dụng styled-components có 2 cách phổ biến**
 
-	c1: từng tags(h1,div,a,img,...} sẽ có từng thẻ styled-components một có một styles
-	c2: dùng môt thẻ ngoài cùng rồi đặt tên className rồi sử dùng rất giống SCSS
+	`c1`: từng tags(h1,div,a,img,...} sẽ có từng thẻ styled-components một có một styles  
+	`c2`: dùng môt thẻ ngoài cùng rồi đặt tên className rồi sử dùng rất giống SCSS
 	
-	import {css} from "styled-components";
+	```
+    import {css} from "styled-components";
+    ```
 	
 	
 	
 	
-*TỔNG KẾT: 1/ sử dụng styled-components dạng CSS in ts, ngoài ra cấu trúc có thể viết như SCSS
-			2/chú ý cách dùng theme, props, css,.attrs, components
-			3/cách dùng createGlobalStyle,Tagged Template Literals,Animations
+# TỔNG KẾT: 
+1. sử dụng styled-components dạng CSS in ts, ngoài ra cấu trúc có thể viết như SCSS
+2. chú ý cách dùng theme, props, css,.attrs, components
+3. cách dùng createGlobalStyle,Tagged Template Literals,Animations
 		

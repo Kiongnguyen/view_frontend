@@ -1,5 +1,26 @@
+
 # **LAYOUT**
+
+# Mục lục
 # ***MAIN***
+# Header
+## header.tsx (src/main/header.tsx)
+## Navigation (src/layouts/main/nav)
+### Types
+### mobile
+#### nav-mobile (src/layouts/main/nav/mobile/nav-mobile)
+#### nav-list (src/layouts/main/nav/mobile/nav-list)
+#### nav-item (src/layouts/main/nav/mobile/nav-item)
+#### style (src/layouts/main/nav/mobile/style)
+### Desktop
+#### nav-desktop (src/layouts/main/nav/mobile/nav-desktop)
+#### nav-list (src/layouts/main/nav/desktop/nav-list)
+#### nav-item (src/layouts/main/nav/desktop/nav-item)
+# ***FOOTER***
+# ***CONFIG-LAYOUT***
+##  config-navigation.tsx (src/main/config-navigation.tsx)
+## layout.tsx (src/main/layout.tsx)
+
 # Header
 > mục phức tạp nhất do có thanh navigition có tasbar và nhiều button liên quan đến các trang khác.
 ## header.tsx (src/main/header.tsx)

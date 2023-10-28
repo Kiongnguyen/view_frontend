@@ -5,3 +5,4 @@
 ## Task 2 - Learn to use Styled-components
 >Link youtube: [Styled-components](https://www.youtube.com/playlist?list=PLmnsJI3O-fYskJJ2nK1kGPXPzCYOTJAOb)  
 >Link web: [Styled-components](https://styled-components.com/)
+## Task 3 - Clone layout_main minimal

@@ -1,27 +1,33 @@
 
 # **LAYOUT**
+## Giới thiệu
+
 
 # Mục lục
-# ***MAIN***
-# Header
-## header.tsx (src/main/header.tsx)
-## Navigation (src/layouts/main/nav)
-### Types
-### mobile
-#### nav-mobile (src/layouts/main/nav/mobile/nav-mobile)
-#### nav-list (src/layouts/main/nav/mobile/nav-list)
-#### nav-item (src/layouts/main/nav/mobile/nav-item)
-#### style (src/layouts/main/nav/mobile/style)
-### Desktop
-#### nav-desktop (src/layouts/main/nav/mobile/nav-desktop)
-#### nav-list (src/layouts/main/nav/desktop/nav-list)
-#### nav-item (src/layouts/main/nav/desktop/nav-item)
-# ***FOOTER***
-# ***CONFIG-LAYOUT***
-##  config-navigation.tsx (src/main/config-navigation.tsx)
-## layout.tsx (src/main/layout.tsx)
+ 
+1. [***MAIN*** ](#1) 
+   1. [Header](#1.1) 
+       1. [header.tsx (src/main/header.tsx)](#1.1.1)
+       2. [Navigation (src/layouts/main/nav)](#1.1.2)
+          1. [Types](#1.1.2.1)
+          2. [mobile](#1.1.2.2)
+             1. [nav-mobile](#1.1.2.2.1)
+             2. [nav-list](#1.1.2.2.2)
+             3. [nav-item](#1.1.2.2.3)
+             4. [style](#1.1.2.2.4)
+          3. [Desktop](#1.1.2.3)
+             1. [nav-mobile](#1.1.2.3.1)
+             2. [nav-list](#1.1.2.3.2)
+             3. [nav-item](#1.1.2.3.3)
+2. [***FOOTER***](#2)
+3. [***CONFIG-LAYOUT***](#3)
+   1. [config-navigation.tsx](#3.1)
+   2. [layout.tsx](#3.2)
+             
 
-# Header
+
+# ***MAIN*** <a id="1"></a>
+# Header <a id="1.1"></a>
 > mục phức tạp nhất do có thanh navigition có tasbar và nhiều button liên quan đến các trang khác.
 ## header.tsx (src/main/header.tsx)
  **Định nghĩa một số hằng trong file**  
@@ -177,9 +183,9 @@
 * `LoginButton`: nút Login
 * `NavMobile`: hiển thị navigtion trên mobile  
   
-## Navigation (src/layouts/main/nav)
+## Navigation (src/layouts/main/nav) <a id="1.1.2"></a>
    > Gồm: `desktop`, `mobile`, `types.ts`
-### Types
+### Types <a id="1.1.2.1"></a>
 > hiển thị types cấu hình của tất cả các file trong thư mục
 ```ts
     //@mui
@@ -218,9 +224,9 @@
         data: NavItemProps[];
         };
 ```
-### mobile
+### mobile <a id="1.1.2.2"></a>
   > hiển thị dao diện trên mobile, gồm có file: `nav-moile`, `nav-list`, `nav-item`.
-#### nav-mobile (src/layouts/main/nav/mobile/nav-mobile)
+#### nav-mobile (src/layouts/main/nav/mobile/nav-mobile) <a id="1.1.2.2.1"></a>
 > tạo ra dao diện thẻ NavMobile dùng trong header
 ```tsx
 //data lấy từ file config là một prop nhập từ thẻ 
@@ -278,7 +284,7 @@
 }
 ```
 
-#### nav-list (src/layouts/main/nav/mobile/nav-list)
+#### nav-list (src/layouts/main/nav/mobile/nav-list) <a id="1.1.2.2.2"></a>
 > tạo ra list menu dạng dọc của mobile
 ```tsx
   export default function NavList({ item }: NavListProps) {
@@ -330,7 +336,7 @@
 }
 
 ```
-#### nav-item (src/layouts/main/nav/mobile/nav-item)
+#### nav-item (src/layouts/main/nav/mobile/nav-item) <a id="1.1.2.2.3"></a>
 > dùng để render các item
 ```tsx
   export default function NavItem({
@@ -382,7 +388,7 @@
 }
 
 ```
-#### style (src/layouts/main/nav/mobile/style)
+#### style (src/layouts/main/nav/mobile/style) <a id="1.1.2.2.4"></a>
 > style lại cho file nav-item
 ```tsx
   type ListItemProps = Omit<NavItemMobileProps, 'item'>;
@@ -402,9 +408,9 @@ export const ListItem = styled(ListItemButton, {
 }));
 
 ```
-### Desktop
+### Desktop <a id="1.1.2.3"></a>
 > có cấu trúc file gần giống của mobile nhưng mục đich dùng cho màn hình lớn đều gồm các file như mobile, gồm có file: `nav-desktop`, `nav-list`, `nav-item`.
-#### nav-desktop (src/layouts/main/nav/mobile/nav-desktop)
+#### nav-desktop (src/layouts/main/nav/mobile/nav-desktop) <a id="1.1.2.3.1"></a>
 >render hết ra trên thanh tasbar theo chiều ngang
 ```tsx
 export default function NavDesktop({ offsetTop, data }: NavProps) {
@@ -418,7 +424,7 @@ export default function NavDesktop({ offsetTop, data }: NavProps) {
 }
 
 ```
-#### nav-list (src/layouts/main/nav/desktop/nav-list)
+#### nav-list (src/layouts/main/nav/desktop/nav-list) <a id="1.1.2.3.2"></a>
 > ở desktop thay NavSectionVertical bằng thẻ Portal có trong Mui
 ```tsx
   <NavItem
@@ -503,7 +509,7 @@ function NavSubList({ items, isDashboard, subheader, onClose }: NavSubListProps)
 }
 
 ```
-#### nav-item (src/layouts/main/nav/desktop/nav-item)
+#### nav-item (src/layouts/main/nav/desktop/nav-item) <a id="1.1.2.3.3"></a>
 ```tsx
   export const NavItem = forwardRef<HTMLDivElement, NavItemDesktopProps>(
   ({ item, open, offsetTop, active, subItem, externalLink, ...other }, ref) => {
@@ -589,7 +595,7 @@ export function NavItemDashboard({ item, sx, ...other }: NavItemDashboardProps) 
 
 ```
 
-# ***FOOTER***
+# ***FOOTER*** <a id="2"></a>
 > gồm có 2 dao diện gồm khi ở trang home và không ở trang home 
 ```tsx
   export default function Footer() {
@@ -723,8 +729,8 @@ export function NavItemDashboard({ item, sx, ...other }: NavItemDashboardProps) 
 ```
 > cơ bản sử dụng thẻ grid vá stack để reposive
 
-# ***CONFIG-LAYOUT***
-##  config-navigation.tsx (src/main/config-navigation.tsx)
+# ***CONFIG-LAYOUT***<a id="3"></a>
+##  config-navigation.tsx (src/main/config-navigation.tsx)<a id="3.1"></a>
 > có một số hằng có sẵn cho việc xây dựng trang như mảng về link, icon, ...
 ```ts
   export const navConfig = [
@@ -744,7 +750,7 @@ export function NavItemDashboard({ item, sx, ...other }: NavItemDashboardProps) 
     icon: <Iconify icon="solar:file-bold-duotone" />,
     children: [...
 ```
-## layout.tsx (src/main/layout.tsx)
+## layout.tsx (src/main/layout.tsx)<a id="3.2"></a>
 
 > thiết lập cấu trúc trang ghép các phần header, footer, body vào thành một và xuất ra thẻ MainLayout để sử dụng bên ngoài.
 ```tsx

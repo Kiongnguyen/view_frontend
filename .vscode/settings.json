@@ -1,9 +1,10 @@
 {
-    "spellright.language": [
-        "en"
-    ],
-    "spellright.documentTypes": [
-        "latex",
-        "plaintext"
-    ]
+  "spellright.language": [
+    "en",
+    "vi"
+  ],
+  "spellright.documentTypes": [
+    "latex",
+    "plaintext"
+  ]
 }

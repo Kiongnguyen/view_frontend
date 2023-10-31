@@ -6,3 +6,5 @@
 >Link youtube: [Styled-components](https://www.youtube.com/playlist?list=PLmnsJI3O-fYskJJ2nK1kGPXPzCYOTJAOb)  
 >Link web: [Styled-components](https://styled-components.com/)
 ## Task 3 - Clone layout_main minimal
+## Task 4 - Setup projects
+## Task 5 - Clone pages_main other 
